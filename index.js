@@ -1,4 +1,4 @@
-document.querySelector("button").addEventListener("click", handleClick);
+document.querySelectorAll("button").addEventListener("click", handleClick);
 
 function handleClick() {
     alert("Hello");
