@@ -1,4 +1,4 @@
-let nOfDrums = document.querySelectorAll(".drum").length
+let nOfDrums = document.querySelectorAll(".drum").length;
 
 function handleClick() {
     alert("Hello");
