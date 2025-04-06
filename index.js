@@ -1,9 +1,10 @@
-let nOfDrums = document.querySelectorAll(".drum").length;
+let drumButtons = document.querySelectorAll(".drum");
+let nOfDrums = drumButtons.length;
 
 function handleClick() {
     alert("Hello");
 }
 
 for (let index = 0; index < nOfDrums; index++) {
-    document.querySelectorAll(".drum")[index].addEventListener("click", handleClick);
+    drumButtons[index].addEventListener("click", handleClick);
 }
