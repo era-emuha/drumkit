@@ -1,8 +1,8 @@
 let drumButtons = document.querySelectorAll(".drum");
 
 function handleClick() {
-    let drumSound = new Audio("sounds/crash.mp3");
-    drumSound.play();
+    let audio = new Audio("sounds/crash.mp3");
+    audio.play();
 }
 
 for (let i = 0; i < drumButtons.length; i++) {
