@@ -1,88 +1,46 @@
 let drumButtons = document.querySelectorAll(".drum");
 
-// handle mouse click
+// Plays sound based on key
+function playSound(key) {
+    switch (key) {
+        case "w":
+            new Audio("sounds/tom-1.mp3").play();
+            break;
+        case "a":
+            new Audio("sounds/tom-2.mp3").play();
+            break;
+        case "s":
+            new Audio("sounds/tom-3.mp3").play();
+            break;
+        case "d":
+            new Audio("sounds/tom-4.mp3").play();
+            break;
+        case "j":
+            new Audio("sounds/snare.mp3").play();
+            break;
+        case "k":
+            new Audio("sounds/crash.mp3").play();
+            break;
+        case "l":
+            new Audio("sounds/kick-bass.mp3").play();
+            break;
+        default:
+            break;
+    }
+}
+
+// Mouse click handler
 function handleClick() {
-    let soundDrum = this.innerHTML;
-
-    switch (soundDrum) {
-        case "w":
-            let tom1 = new Audio("sounds/tom-1.mp3");
-            tom1.play();
-            break;
-        case "a":
-            let tom2 = new Audio("sounds/tom-2.mp3");
-            tom2.play();
-            break;
-        case "s":
-            let tom3 = new Audio("sounds/tom-3.mp3");
-            tom3.play();
-            break;
-        case "d":
-            let tom4 = new Audio("sounds/tom-4.mp3");
-            tom4.play();
-            break;
-        case "j":
-            let snare = new Audio("sounds/snare.mp3");
-            snare.play();
-            break;
-        case "k":
-            let crash = new Audio("sounds/crash.mp3");
-            crash.play();
-            break;
-        case "l":
-            let kick = new Audio("sounds/kick-bass.mp3");
-            kick.play();
-            break;
-    
-        default:
-            break;
-    }
+    let buttonKey = this.innerHTML;
+    playSound(buttonKey);
 }
 
-for (let i = 0; i < drumButtons.length; i++) {
-    drumButtons[i].addEventListener("click", handleClick);
-}
+// Add click event listeners to buttons
+drumButtons.forEach(button => {
+    button.addEventListener("click", handleClick);
+});
 
-
-// handle keyboard press
-function handleKey() {
-    let soundDrum = this.innerHTML;
-
-    switch (soundDrum) {
-        case "w":
-            let tom1 = new Audio("sounds/tom-1.mp3");
-            tom1.play();
-            break;
-        case "a":
-            let tom2 = new Audio("sounds/tom-2.mp3");
-            tom2.play();
-            break;
-        case "s":
-            let tom3 = new Audio("sounds/tom-3.mp3");
-            tom3.play();
-            break;
-        case "d":
-            let tom4 = new Audio("sounds/tom-4.mp3");
-            tom4.play();
-            break;
-        case "j":
-            let snare = new Audio("sounds/snare.mp3");
-            snare.play();
-            break;
-        case "k":
-            let crash = new Audio("sounds/crash.mp3");
-            crash.play();
-            break;
-        case "l":
-            let kick = new Audio("sounds/kick-bass.mp3");
-            kick.play();
-            break;
-    
-        default:
-            break;
-    }
-}
-
-for (let i = 0; i < drumButtons.length; i++) {
-    drumButtons[i].addEventListener("keypress", handleKey);
-}
+// Keyboard press handler
+document.addEventListener("keydown", function(event) {
+    playSound(event.key);
+});
